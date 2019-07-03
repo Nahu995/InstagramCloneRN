@@ -15,7 +15,6 @@ const SignIn = ( props ) => {
   )
 };
 
-console.log("default")
 const SignUp = ( props ) => {
   const { navigation } = props
   return(
@@ -55,4 +54,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export { PathsNotAuthenticated }
+export default PathsNotAuthenticated
