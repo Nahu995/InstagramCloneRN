@@ -1,4 +1,6 @@
 import React from 'react';
+import { Provider } from 'react-redux'
+import Store from './Store/Store.js'
 import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import PathsNotAuthenticated from './Components/NotAuthenticated/PathsNotAuthenticated';
@@ -18,7 +20,9 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <PathAuthenticated />
+        <Provider store={Store} >
+          <PathNotAuthenticated />
+        </Provider>
       </View>
     );
   }

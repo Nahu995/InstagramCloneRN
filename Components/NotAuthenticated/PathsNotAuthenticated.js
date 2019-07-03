@@ -1,31 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import SignIn from './SignIn'
+import SignUp from './SignUp'
 
-const SignIn = ( props ) => {
-  const { navigation } = props;  
-  return (
-    <View style={styles.sign}>
-      <Text>Component SignIn</Text>
-      <Button 
-        title="SignUp"
-        onPress={()=> {navigation.navigate('SignUp')}}
-      />
-    </View>
-  )
-};
 
-const SignUp = ( props ) => {
-  const { navigation } = props
-  return(
-  <View style={styles.sign}>
-    <Text>Component SignUp</Text>
-    <Button 
-      title="Back"
-      onPress={() => {navigation.goBack()}}
-    />
-  </View>
-)};
+
 
 
 const PathsNotAuthenticated = createStackNavigator(
