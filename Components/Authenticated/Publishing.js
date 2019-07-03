@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native'
 
-export default class Search extends Component{
+export default class Publishing extends Component{
 
   render() {
-    const { navigation } = this.props;
+    const {navigation} = this.props
     return (
       <View style={styles.container}>
-        <Text>Search</Text>
+        <Text>Publishing</Text>
         <Button 
-          title= 'Publishing'
-          onPress= {() => { navigation.navigate('Publishing')}}
+          title= 'Author'
+          onPress= { () => { navigation.navigate('Author') }}
+        />
+        <Button 
+          title= 'Comments'
+          onPress= { () => { navigation.navigate('Comments') }}
         />
       </View>
     )

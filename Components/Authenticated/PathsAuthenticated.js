@@ -1,30 +1,63 @@
 import { createBottomTabNavigator ,createAppContainer } from 'react-navigation'
-import Home from './Home'
-import Search from './Search'
+import StackHome from './StackHome'
+import StackSearch from './StackSearch'
 import Add from './Add'
-import Follow from './Follow'
+import StackFollow from './StackFollow'
 import Profile from './Profile'
 
 const PathsAuthenticated = createBottomTabNavigator(
   {
     Home: {
-      screen: Home,  
+      screen: StackHome,
+      navigationOptions: ({ navigation }) => {
+        //Al no funcionar tabBarVisible = false en la V3  para Comments.,
+        //Lo realizo de forma "Manual" ===>> NO DRY
+        let { routeName } = navigation.state.routes[navigation.state.index]
+
+        let navigationOptions = {}
+        if (routeName === 'Comments') {
+          navigationOptions.tabBarVisible = false;
+        }
+        return navigationOptions
+      }
     },
     Search: {
-      screen: Search,  
+      screen: StackSearch,
+      navigationOptions: ({ navigation }) => {
+        //Al no funcionar tabBarVisible = false en la V3  para Comments.,
+        //Lo realizo de forma "Manual"  ===>> NO DRY
+        let { routeName } = navigation.state.routes[navigation.state.index]
+
+        let navigationOptions = {}
+        if (routeName === 'Comments') {
+          navigationOptions.tabBarVisible = false;
+        }
+        return navigationOptions
+      }  
     },
     Add: {
       screen: Add,  
     },
     Follow: {
-      screen: Follow,  
+      screen: StackFollow,
+      navigationOptions: ({ navigation }) => {
+        //Al no funcionar tabBarVisible = false en la V3  para Comments.,
+        //Lo realizo de forma "Manual" ==>> NO DRY
+        let { routeName } = navigation.state.routes[navigation.state.index]
+
+        let navigationOptions = {}
+        if (routeName === 'Comments') {
+          navigationOptions.tabBarVisible = false;
+        }
+        return navigationOptions
+      }   
     },
     Profile: {
       screen: Profile,  
     },
   },
   {
-
+    tabBarPosition: 'bottom'
   }
 )
 

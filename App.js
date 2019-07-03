@@ -18,7 +18,6 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {console.log("Funciona?")}
         <PathAuthenticated />
       </View>
     );
@@ -31,5 +30,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     // alignItems: 'center',
     justifyContent: 'center',
+    marginTop:24
   },
 });
