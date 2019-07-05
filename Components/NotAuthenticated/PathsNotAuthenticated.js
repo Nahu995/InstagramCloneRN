@@ -1,19 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import SignIn from './SignIn'
-import SignUp from './SignUp'
-
-
-
-
+import SignIn from './SingIn'
+import SignUp from './SingUp'
 
 const PathsNotAuthenticated = createStackNavigator(
   {
     SignIn: {
       screen: SignIn,
       navigationOptions: {
-        header: null,
+        // header: null,
       }
     },
     SignUp: {
@@ -22,16 +18,10 @@ const PathsNotAuthenticated = createStackNavigator(
   },
   {
     defaultNavigationOptions:{
-      title : 'Default Title "CreateStackNavigator"'
+      // title : 'Default Title "CreateStackNavigator"'
+      header: null,
     }  
   }
 );
-
-const styles = StyleSheet.create({
-  sign:{
-    flex : 1,
-    justifyContent: 'center'
-  }
-})
 
 export default PathsNotAuthenticated

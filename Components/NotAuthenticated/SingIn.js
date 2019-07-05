@@ -1,11 +1,12 @@
 import React,{Component} from 'react'
-import { View, Text, StyleSheet} from 'react-native'
-
- export default class classSignIn extends Component {
-   render () {
-    const { navigation } = props;  
+import { View, Text, StyleSheet, Button } from 'react-native'
+import SignInForm from './Forms/SignInForm'
+export default class SignIn extends Component {
+  render () {
+  const { navigation } = this.props;  
     return (
       <View style={styles.sign}>
+        <SignInForm />
         <Text>Component SignIn</Text>
         <Button 
           title="SignUp"
@@ -17,10 +18,10 @@ import { View, Text, StyleSheet} from 'react-native'
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  sign:{
+    flex : 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2c3e50'
-  }
+    backgroundColor: '#fff'
+  },
 })

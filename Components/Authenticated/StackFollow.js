@@ -3,7 +3,7 @@ import TabFollow from './TabFollow'
 import Author from './Profile'
 import Publishing from './Publishing'
 import Comments from './Comments'
-console.log("null")
+
 const StackFollow = createStackNavigator(
   {
     TabFollow:{
