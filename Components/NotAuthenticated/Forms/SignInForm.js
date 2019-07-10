@@ -3,10 +3,9 @@ import { StyleSheet, Text, View, TextInput,Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
 const fieldName = (props) => {
-  console.log("onBlur====>>> \n",props)
-  // console.log("Rebundle!!")
+  // console.log("onBlur====>>> \n",props)
   return (
-    <View>  
+    <View style={styles.textInput}>  
       <TextInput 
         placeholder={props.ph} 
         value= {()=> props.input.value}
@@ -16,14 +15,10 @@ const fieldName = (props) => {
         secureTextEntry={!!(props.input.name === "password" || props.input.name === "passwordConfirm")}
         onBlur={props.input.onBlur}
       />
+      <View style={styles.line} />
     {props.meta.touched && props.meta.error && 
-    <Text 
-      style={{
-        color: "black", 
-        backgroundColor:"lightblue",
-        opacity: 0.5,
-        borderRadius:2.5,
-      }}>{props.meta.error}</Text>}
+      <Text style={styles.errors}>{props.meta.error}</Text>
+    }
     </View>
   )
 }
@@ -48,19 +43,39 @@ const validate = (values) => {
   return errors;
 }
 const SignInForm = (props) => {
-  // console.log("signupProps\n" , props)
   return (
     <View>
       <Field name="email" component= {fieldName} ph='email@email.com'/>
       <Field name="password" component= {fieldName} ph='password'/>
-      <Text>Redux Form</Text>
       <Button 
         title="SignIn"
+        style={styles.button}
         onPress={ props.handleSubmit((values) => { console.log("HANDLESUBMIT ===>> ", values) })}
       />
+      <View style={styles.lineButton} />
     </View>
   )
 }
+console.log("EXPOSTART")
+
+const styles = StyleSheet.create({
+  textInput: {
+    marginBottom: 16,
+  },
+  line: {
+    backgroundColor: '#66b3ff',
+    height: 1.5,
+    opacity: 0.8
+
+  },
+  errors: {
+    color: "#ff471a",
+    opacity: 0.8 
+  },
+  lineButton: {
+    height: 7
+  }
+})
 
 // export default reduxForm({form:"formName",validate})(Component)
 export default reduxForm({

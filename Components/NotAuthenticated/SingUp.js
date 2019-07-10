@@ -3,38 +3,32 @@ import { StyleSheet, View, Text,TextInput, Button } from 'react-native'
 import {connect} from 'react-redux'
 import SignUpForm from './Forms/SignUpForm'
 
-
 class SignUp extends Component {
   
+  userRegister = values => {
+    this.props.register (values);
+  }
   render () {
   const { navigation } = this.props 
     return(
-    <View style={styles.sign}>
-      <Text>Component SignUp</Text>
-      <SignUpForm />
-      {/* <TextInput 
-        style= {styles.input}
-        placeholder="correo@correo.com"
-      /> */}
+    <View style={styles.container}>
+      <SignUpForm navigation={navigation} userRegister = {this.userRegister}/>
       <Button 
         title="Back"
+        style={styles.button}
         onPress={() => { navigation.goBack() }}
       />
-      {/* <Button 
-        title="Aumentar"
-        onPress={this.props.aumentar}
-      /> */}
     </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  sign:{
+  container:{
     flex : 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#90EE90',
+    paddingHorizontal: 16,
   },
   input:{
     backgroundColor:'#fff',
@@ -47,9 +41,9 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps =  (dispatch, ownProps) => ({
-  aumentar:  () => {
+  register:  (values) => {
     // dispatch(actionCreator)
-    dispatch({type: "AUMENTAR_REDUCER_PRUEBA" });
+    dispatch({type: "USER_REGISTER", data: values });
   }
 });
 

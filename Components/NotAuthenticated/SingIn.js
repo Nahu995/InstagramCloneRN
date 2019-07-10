@@ -5,9 +5,8 @@ export default class SignIn extends Component {
   render () {
   const { navigation } = this.props;  
     return (
-      <View style={styles.sign}>
+      <View style={styles.container}>
         <SignInForm />
-        <Text>Component SignIn</Text>
         <Button 
           title="SignUp"
           onPress={()=> {navigation.navigate('SignUp')}}
@@ -18,10 +17,10 @@ export default class SignIn extends Component {
 };
 
 const styles = StyleSheet.create({
-  sign:{
+  container: {
     flex : 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: '#90EE90',
+    paddingHorizontal: 16
   },
 })

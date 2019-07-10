@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#2c3e50',
     // alignItems: 'center',
     justifyContent: 'center',
-    marginTop:24
+    // marginTop:24
   },
 });
