@@ -3,12 +3,12 @@ import { StyleSheet, Text, View, TextInput,Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
 const fieldName = (props) => {
-  // console.log("onBlur====>>> \n",props)
   return (
-    <View style={styles.textInput}>  
+    <View style={styles.inputText}>  
+    {console.log("PROPS",props.input.value)}
       <TextInput 
         placeholder={props.ph} 
-        value= {()=> props.input.value}
+        value= {props.input.value}
         onChangeText={props.input.onChange}
         keyboardType={props.input.name === "email" ? 'email-address' : 'default'}
         autoCapitalize='none'
@@ -56,10 +56,9 @@ const SignInForm = (props) => {
     </View>
   )
 }
-console.log("EXPOSTART")
 
 const styles = StyleSheet.create({
-  textInput: {
+  inputText: {
     marginBottom: 16,
   },
   line: {

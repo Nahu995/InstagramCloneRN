@@ -5,9 +5,10 @@ import SignUpForm from './Forms/SignUpForm'
 
 class SignUp extends Component {
   
-  userRegister = values => {
-    this.props.register (values);
-  }
+  userRegister = values => (
+    this.props.register (values));
+  
+
   render () {
   const { navigation } = this.props 
     return(
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
   },
   input:{
     backgroundColor:'#fff',
-    fontColor: 'red'
+    color: 'red'
   }
 })
 

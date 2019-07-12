@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
 import SignInForm from './Forms/SignInForm'
+console.log("try,m")
 export default class SignIn extends Component {
   render () {
   const { navigation } = this.props;  

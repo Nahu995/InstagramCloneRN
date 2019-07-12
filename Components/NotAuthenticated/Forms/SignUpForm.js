@@ -1,16 +1,15 @@
 import React from 'react'
 import { StyleSheet, Text, View, TextInput,Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
-import { autentication } from '../../../Store/Services/Firebase'
 
 const fieldName = (props) => {
   console.log("inputs")
   return (
-    <View style={styles.textInput}>  
+    <View style={styles.textInput}> 
       <TextInput 
         placeholder={props.ph} 
         onChangeText={props.input.onChange}
-        value= {()=> props.input.value}
+        value= {() => props.input.value}
         keyboardType={props.input.name === "email" ? 'email-address' : 'default'}
         autoCapitalize='none'
         secureTextEntry={!!(props.input.name === "password" || props.input.name === "passwordConfirm")}
@@ -18,8 +17,7 @@ const fieldName = (props) => {
       />
       <View style= {styles.line}/>
     {props.meta.touched && props.meta.error && 
-    <Text 
-      style={styles.errors}>{props.meta.error}</Text>}
+    <Text style={styles.errors}>{props.meta.error}</Text>}
     </View>
   )
 }
@@ -53,11 +51,10 @@ const validate = (values) => {
   } else if(values.passwordConfirm !== values.password) {
     errors.passwordConfirm = "The password does not match"
   }
-
   return errors;
 }
+
 const SignUpForm = (props) => {
-  console.log("SINGUP FORM")
   return (
     <View>
       <Field name="name" component= {fieldName} ph='name'/>
@@ -66,7 +63,7 @@ const SignUpForm = (props) => {
       <Field name="passwordConfirm" component= {fieldName} ph='confirm password'/>
       <Button 
         title="Register"
-        onPress={ props.handleSubmit( props.userRegister)}
+        onPress={props.handleSubmit(props.userRegister)}
       />
       <View style={styles.lineButton} />
     </View>
