@@ -5,10 +5,9 @@ import { Field, reduxForm } from 'redux-form'
 const fieldName = (props) => {
   return (
     <View style={styles.inputText}>  
-    {console.log("PROPS",props.input.value)}
       <TextInput 
         placeholder={props.ph} 
-        value= {props.input.value}
+        value= {()=>props.input.value}
         onChangeText={props.input.onChange}
         keyboardType={props.input.name === "email" ? 'email-address' : 'default'}
         autoCapitalize='none'
@@ -50,7 +49,7 @@ const SignInForm = (props) => {
       <Button 
         title="SignIn"
         style={styles.button}
-        onPress={ props.handleSubmit((values) => { console.log("HANDLESUBMIT ===>> ", values) })}
+        onPress={props.handleSubmit(props.userLogin)}
       />
       <View style={styles.lineButton} />
     </View>

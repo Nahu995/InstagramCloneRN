@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, TextInput,Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
 const fieldName = (props) => {
-  console.log("inputs")
   return (
     <View style={styles.textInput}> 
       <TextInput 

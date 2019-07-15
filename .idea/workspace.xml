@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37189944-495d-4321-b9ce-d40e3f051b04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/NotAuthenticated/Forms/SignInForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotAuthenticated/Forms/SignInForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/NotAuthenticated/Forms/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotAuthenticated/Forms/SignUpForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/NotAuthenticated/SingUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotAuthenticated/SingUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/NotAuthenticated/SingIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotAuthenticated/SingIn.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Store/Sagas/Sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/Store/Sagas/Sagas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store/Store.js" beforeDir="false" afterPath="$PROJECT_DIR$/Store/Store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
