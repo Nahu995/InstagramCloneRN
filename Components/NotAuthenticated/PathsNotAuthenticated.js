@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
 import SignIn from './SingIn'
 import SignUp from './SingUp'
 
@@ -24,4 +24,4 @@ const PathsNotAuthenticated = createStackNavigator(
   }
 );
 
-export default PathsNotAuthenticated
+export default createAppContainer(PathsNotAuthenticated)

@@ -1,6 +1,8 @@
 const CONSTANTS = {
   REGISTER: 'REGISTER',
-  LOGIN: 'LOGIN'
+  LOGIN: 'LOGIN',
+  SET_SESSION: 'SET_SESSION',
+  SIGN_OFF: 'SIGN_OFF'
 }
 
 export default CONSTANTS

@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import PathsNotAuthenticated from './Components/NotAuthenticated/PathsNotAuthenticated';
 import PathsAuthenticated from './Components/Authenticated/PathsAuthenticated';
-
+import Select from './Select'
 const PathNotAuthenticated = createAppContainer(PathsNotAuthenticated);
 const PathAuthenticated = createAppContainer(PathsAuthenticated);
 
@@ -21,7 +21,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Provider store={Store} >
-          <PathNotAuthenticated />
+          <Select />
         </Provider>
       </View>
     );

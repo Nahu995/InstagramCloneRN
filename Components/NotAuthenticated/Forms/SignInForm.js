@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   line: {
-    backgroundColor: '#66b3ff',
-    height: 1.5,
+    backgroundColor: '#fff',
+    height: 2,
     opacity: 0.8
 
   },
