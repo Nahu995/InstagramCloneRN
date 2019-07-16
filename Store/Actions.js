@@ -17,4 +17,13 @@ export const actionSetSession = user => ({
 
 export const actionSignOff = () => ({
   type: CONSTANTS.SIGN_OFF
-})
+});
+
+export const actionUploadSignUpImage = (image) => ({
+  type: CONSTANTS.UPLOAD_SIGNUP_IMAGE,
+  image
+});
+
+export const actionCleanSignUpImage = () => ({
+  type: CONSTANTS.CLEAN_SIGNUP_IMAGE,
+});

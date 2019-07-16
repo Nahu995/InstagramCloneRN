@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text,TextInput, Button } from 'react-native'
 import {connect} from 'react-redux'
-import { actionRegister } from '../../Store/Actions'
+import { actionRegister, actionUploadSignUpImage, actionCleanSignUpImage } from '../../Store/Actions'
 import SignUpForm from './Forms/SignUpForm'
 import SelectImage from '../SelectImage'
-import CONSTANTS from '../../Store/Constants';
 
 class SignUp extends Component {
   
@@ -50,23 +49,19 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state, ownProps) => ({
-  numero : state.reducerPrueba,
   image: state.reducerSignUpImage
-
 });
 
 const mapDispatchToProps =  (dispatch, ownProps) => ({
   register:  (values) => {
-    // dispatch(actionCreator)
     dispatch( actionRegister(values) );
   },
   uploadImage: (image) => {
-    dispatch({ type: CONSTANTS.UPLOAD_SIGNUP_IMAGE, image });
+    dispatch(actionUploadSignUpImage(image));
   },
   cleanImage: () => {
-    dispatch({type: CONSTANTS.CLEAN_SIGNUP_IMAGE})
+    dispatch(actionCleanSignUpImage())
   }
 });
-
 
 export default connect(mapStateToProps, mapDispatchToProps)( SignUp );
