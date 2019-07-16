@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, View, Text,TextInput, Button } from 'react-native'
 import {connect} from 'react-redux'
+import { blur, change} from 'redux-form'
 import { actionRegister, actionUploadSignUpImage, actionCleanSignUpImage } from '../../Store/Actions'
 import SignUpForm from './Forms/SignUpForm'
 import SelectImage from '../SelectImage'
@@ -24,7 +25,11 @@ class SignUp extends Component {
         image={this.props.image.image}
         uploadImage={this.props.uploadImage}
       />
-      <SignUpForm navigation={navigation} userRegister = {this.userRegister}/>
+      <SignUpForm 
+        navigation= {navigation}
+        userRegister= {this.userRegister}
+        image= {this.props.image.image}
+      />
       {/* <Button 
         title="Back"
         style={styles.button}
@@ -58,6 +63,8 @@ const mapDispatchToProps =  (dispatch, ownProps) => ({
   },
   uploadImage: (image) => {
     dispatch(actionUploadSignUpImage(image));
+    //            form="string",field, value
+    dispatch(blur('SignUpForm', 'image', Date.now()));
   },
   cleanImage: () => {
     dispatch(actionCleanSignUpImage())
