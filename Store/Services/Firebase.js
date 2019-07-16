@@ -1,8 +1,8 @@
 import * as firebase from 'firebase'
-import { apiKeyFirebase } from '../../apiKey'
+import { APIKEYFIREBASE } from '../../config'
 
 var config = {
-  apiKey: apiKeyFirebase,
+  apiKey: APIKEYFIREBASE,
   authDomain: "instagramclonern-995.firebaseapp.com",
   databaseURL: "https://instagramclonern-995.firebaseio.com",
   projectId: "instagramclonern-995",
