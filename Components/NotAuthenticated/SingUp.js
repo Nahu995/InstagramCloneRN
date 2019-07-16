@@ -4,18 +4,27 @@ import {connect} from 'react-redux'
 import { actionRegister } from '../../Store/Actions'
 import SignUpForm from './Forms/SignUpForm'
 import SelectImage from '../SelectImage'
+import CONSTANTS from '../../Store/Constants';
 
 class SignUp extends Component {
   
-  userRegister = values => (
-    this.props.register (values));
+  componentWillUnmount(){
+    this.props.cleanImage()
+  }
   
+  userRegister = values => (
+    this.props.register (values)
+  );
 
   render () {
+    console.log("imagen", this.props)
   const { navigation } = this.props 
     return(
     <View style={styles.container}>
-      <SelectImage />
+      <SelectImage 
+        image={this.props.image.image}
+        uploadImage={this.props.uploadImage}
+      />
       <SignUpForm navigation={navigation} userRegister = {this.userRegister}/>
       {/* <Button 
         title="Back"
@@ -41,13 +50,21 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = (state, ownProps) => ({
-  numero : state.reducerPrueba
+  numero : state.reducerPrueba,
+  image: state.reducerSignUpImage
+
 });
 
 const mapDispatchToProps =  (dispatch, ownProps) => ({
   register:  (values) => {
     // dispatch(actionCreator)
     dispatch( actionRegister(values) );
+  },
+  uploadImage: (image) => {
+    dispatch({ type: CONSTANTS.UPLOAD_SIGNUP_IMAGE, image });
+  },
+  cleanImage: () => {
+    dispatch({type: CONSTANTS.CLEAN_SIGNUP_IMAGE})
   }
 });
 
