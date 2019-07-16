@@ -55,7 +55,7 @@ const validate = (values) => {
 
 const SignUpForm = (props) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Field name="name" component= {fieldName} ph='name'/>
       <Field name="email" component= {fieldName} ph='email@email.com'/>
       <Field name="password" component= {fieldName} ph='password'/>
@@ -65,11 +65,19 @@ const SignUpForm = (props) => {
         onPress={props.handleSubmit(props.userRegister)}
       />
       <View style={styles.lineButton} />
+      <Button 
+        title="Back"
+        style={styles.button}
+        onPress={() => { props.navigation.goBack() }}
+      />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container:{
+    flex:3,
+  },
   textInput: {
     marginBottom: 16,
   },

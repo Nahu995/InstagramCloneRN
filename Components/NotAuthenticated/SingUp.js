@@ -3,6 +3,7 @@ import { StyleSheet, View, Text,TextInput, Button } from 'react-native'
 import {connect} from 'react-redux'
 import { actionRegister } from '../../Store/Actions'
 import SignUpForm from './Forms/SignUpForm'
+import SelectImage from '../SelectImage'
 
 class SignUp extends Component {
   
@@ -14,12 +15,13 @@ class SignUp extends Component {
   const { navigation } = this.props 
     return(
     <View style={styles.container}>
+      <SelectImage />
       <SignUpForm navigation={navigation} userRegister = {this.userRegister}/>
-      <Button 
+      {/* <Button 
         title="Back"
         style={styles.button}
         onPress={() => { navigation.goBack() }}
-      />
+      /> */}
     </View>
     )
   }

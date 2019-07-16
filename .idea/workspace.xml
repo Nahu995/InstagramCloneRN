@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37189944-495d-4321-b9ce-d40e3f051b04" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/InstagramClone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/InstagramClone.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Components/NotAuthenticated/Forms/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotAuthenticated/Forms/SignUpForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Components/NotAuthenticated/SingIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotAuthenticated/SingIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store/Sagas/Sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/Store/Sagas/Sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/NotAuthenticated/SingUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/NotAuthenticated/SingUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,9 +29,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="InstagramClone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="InstagramClone" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -64,21 +77,26 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="784" extended-state="6" />
     <layout>
-      <window_info id="Captures" order="0" weight="0.25" />
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.32884902" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.32826748" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Resources Explorer" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
+      <window_info id="Build Variants" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Logcat" order="4" />
+      <window_info anchor="bottom" id="Android Profiler" order="5" show_stripe_button="false" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
+      <window_info anchor="right" id="Assistant" order="4" visible="true" weight="0.33510637" />
     </layout>
   </component>
 </project>
