@@ -27,3 +27,12 @@ export const actionUploadSignUpImage = (image) => ({
 export const actionCleanSignUpImage = () => ({
   type: CONSTANTS.CLEAN_SIGNUP_IMAGE,
 });
+
+export const actionUploadPublishImage = (image) => ({
+  type: CONSTANTS.UPLOAD_PUBLISH_IMAGE,
+  image
+});
+
+export const actionCleanPublishImage = (image) => ({
+  type: CONSTANTS.CLEAN_PUBLISH_IMAGE,
+});

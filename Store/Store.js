@@ -38,6 +38,19 @@ const reducerSignUpImage = (state = {image: null}, action) => {
   }
 }
 
+const reducerPublishImage = (state = {image: null}, action) => {
+  switch (action.type) {
+    case CONSTANTS.UPLOAD_PUBLISH_IMAGE:
+      return { image: action.image }    
+    case CONSTANTS.CLEAN_PUBLISH_IMAGE:
+      return { image: null }
+  
+    default:
+      return state;
+  }
+}
+
+
 // f (g (h (...args) ) )
 // ultimoMiddleware(myMiddleware(...args))
 
@@ -45,6 +58,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
   reducerPrueba,
+  reducerPublishImage,
   reducerSession,
   reducerSignUpImage,
   form,

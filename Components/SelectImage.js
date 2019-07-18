@@ -5,7 +5,6 @@ import { Button, Image, View, StyleSheet, TouchableOpacity } from 'react-native'
 import * as ImagePicker from 'expo-image-picker'
 import { CLOUDINARY_PRESET, CLOUDINARY_NAME } from '../config';
 
-
 const SelectImage = (props) => {
   console.log("line 9",{...props})
   const selectImage = async () => {
@@ -22,13 +21,13 @@ const SelectImage = (props) => {
       // CLOUDINARY_NAME
     }
   };
-
+  const radius = {borderRadius: props.radius ? 0 : 80}
   return (
     <View style={{ flex: 2, alignItems: 'center', justifyContent: 'center'}}>
       <TouchableOpacity onPress= { selectImage } >
         <Image 
           source={(!props.image)? require('../assets/chooseImage.png') :{ uri: props.image.uri}} 
-          style={(!props.image)? {width:160, height: 160}:{ width:160, height: 160, borderRadius:80}}
+          style={(!props.image)? {width:160, height: 160}:{ width:160, height: 160, ...radius}}
         />
       </TouchableOpacity>
       {/* <Button title="Pick an image from camera roll" onPress={this._pickImage} />

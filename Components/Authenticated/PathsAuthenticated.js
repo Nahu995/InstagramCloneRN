@@ -1,9 +1,9 @@
 import { createBottomTabNavigator ,createAppContainer } from 'react-navigation'
 import StackHome from './StackHome'
 import StackSearch from './StackSearch'
-import Add from './Add'
 import StackFollow from './StackFollow'
 import Profile from './Profile'
+import StackAdd from './StackAdd';
 
 const PathsAuthenticated = createBottomTabNavigator(
   {
@@ -25,7 +25,7 @@ const PathsAuthenticated = createBottomTabNavigator(
       screen: StackSearch,
       navigationOptions: ({ navigation }) => {
         //Al no funcionar tabBarVisible = false en la V3  para Comments.,
-        //Lo realizo de forma "Manual"  ===>> NO DRY
+        //Lo realizo de forma "Manual"  ===> NO DRY
         let { routeName } = navigation.state.routes[navigation.state.index]
 
         let navigationOptions = {}
@@ -36,17 +36,28 @@ const PathsAuthenticated = createBottomTabNavigator(
       }  
     },
     Add: {
-      screen: Add,  
+      screen: StackAdd,
+      navigationOptions: ({ navigation }) => {
+        //Al no funcionar tabBarVisible = false en la V3  para Add.,
+        //Lo realizo de forma "Manual" ===> NO DRY
+        let { routeName } = navigation.state.routes[navigation.state.index]
+
+        let navigationOptions = {}
+        if (routeName === 'Selection') {
+          navigationOptions.tabBarVisible = false;
+        }
+        return navigationOptions
+      }
     },
     Follow: {
       screen: StackFollow,
       navigationOptions: ({ navigation }) => {
         //Al no funcionar tabBarVisible = false en la V3  para Comments.,
-        //Lo realizo de forma "Manual" ==>> NO DRY
+        //Lo realizo de forma "Manual" ===> NO DRY
         let { routeName } = navigation.state.routes[navigation.state.index]
 
         let navigationOptions = {}
-        if (routeName === 'Comments') {
+        if (routeName === 'TabFollow') {
           navigationOptions.tabBarVisible = false;
         }
         return navigationOptions

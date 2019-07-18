@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text,TextInput, Button } from 'react-native'
-import {connect} from 'react-redux'
-import { blur, change} from 'redux-form'
+import { StyleSheet, View, Button } from 'react-native'
+import { connect } from 'react-redux'
+import { blur } from 'redux-form'
 import { actionRegister, actionUploadSignUpImage, actionCleanSignUpImage } from '../../Store/Actions'
 import SignUpForm from './Forms/SignUpForm'
 import SelectImage from '../SelectImage'
@@ -17,7 +17,6 @@ class SignUp extends Component {
   );
 
   render () {
-    console.log("imagen", this.props)
   const { navigation } = this.props 
     return(
     <View style={styles.container}>
