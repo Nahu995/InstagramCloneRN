@@ -3,6 +3,7 @@ import { Button, Image, View, StyleSheet, TouchableOpacity } from 'react-native'
 // import Constants  from 'expo-constants'
 // import Permissions from 'expo-permissions'
 import * as ImagePicker from 'expo-image-picker'
+import { CLOUDINARY_PRESET, CLOUDINARY_NAME } from '../config';
 
 
 const SelectImage = (props) => {
@@ -17,6 +18,8 @@ const SelectImage = (props) => {
 
     if (!result.cancelled) {
       props.uploadImage(result)
+      let base64Img = `data:image/jpg;base64,${result.base64}`
+      // CLOUDINARY_NAME
     }
   };
 
