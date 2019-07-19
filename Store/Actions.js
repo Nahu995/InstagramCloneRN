@@ -41,3 +41,8 @@ export const actionUploadPublish = (values) => ({
   type: CONSTANTS.UPLOAD_PUBLISH,
   values
 });
+
+export const actionDownloadPublications = (values) => ({
+  type: CONSTANTS.DOWNLOAD_PUBLICATIONS,
+  values
+})

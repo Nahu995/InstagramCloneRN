@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native'
+import { connect } from 'react-redux'
+import {actionDownloadPublications} from '../../Store/Actions'
 
-export default class Home extends Component{
+class Home extends Component{
+  
+  componentDidMount(){
+    this.props.downloadPublications()
+  }
 
   render() {
     const { navigation } = this.props
@@ -10,11 +16,15 @@ export default class Home extends Component{
         <Text>Home</Text>
         <Button 
           title= 'Author'
-          onPress= { () => {navigation.navigate( 'Author' ) }}
+          onPress= { () => {
+            navigation.navigate( 'Author' ) 
+          }}
         />
         <Button 
           title= 'Comments'
-          onPress= { () => { navigation.navigate('Comments')}}
+          onPress= { () => {
+            navigation.navigate('Comments')
+          }}
         />
       </View>
     )
@@ -29,3 +39,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   }
 });
+
+const mapStateToProps = (state, ownProps) => {
+  return{
+    
+  }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return{
+    downloadPublications: () => {
+      dispatch(actionDownloadPublications())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
