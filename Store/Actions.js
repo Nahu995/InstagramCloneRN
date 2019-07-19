@@ -33,6 +33,11 @@ export const actionUploadPublishImage = (image) => ({
   image
 });
 
-export const actionCleanPublishImage = (image) => ({
+export const actionCleanPublishImage = () => ({
   type: CONSTANTS.CLEAN_PUBLISH_IMAGE,
+});
+
+export const actionUploadPublish = (values) => ({
+  type: CONSTANTS.UPLOAD_PUBLISH,
+  values
 });

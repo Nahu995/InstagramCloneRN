@@ -3,10 +3,14 @@ import { View, Text, StyleSheet, Button } from 'react-native'
 import SelectImage from '../SelectImage';
 import {blur} from 'redux-form'
 import { connect } from 'react-redux'
-import { actionUploadPublishImage } from '../../Store/Actions';
+import { actionUploadPublishImage, actionUploadPublish, actionCleanPublishImage } from '../../Store/Actions';
 import SelectGaleryForm from './SelectGaleryForm';
 
 class SelectGalery extends Component {
+  componentWillUnmount(){
+    this.props.cleanImageAdd()
+  }
+  
   render() {
     return(
       <View style={styles.container}>
@@ -16,7 +20,7 @@ class SelectGalery extends Component {
         <View style={styles.text}>
           <SelectGaleryForm 
             image= {this.props.image.image}
-            userRegister= {(values) => console.log(values)}
+            userRegister= {(values) => this.props.uploadPublish(values)}
           />
         </View>
 
@@ -35,6 +39,12 @@ const mapDispatchToProps= (dispatch, ownProps) => {
     uploadImage: (image) => {
       dispatch(actionUploadPublishImage(image));
       dispatch(blur('SelectGaleryForm', 'image', Date.now()));
+    },
+    uploadPublish: (values) => {
+      dispatch(actionUploadPublish(values))
+    },
+    cleanImageAdd: () => {
+      dispatch(actionCleanPublishImage())
     }
   }
 }

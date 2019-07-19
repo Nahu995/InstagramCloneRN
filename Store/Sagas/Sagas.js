@@ -68,9 +68,31 @@ function* sagaLogin (values) {
   }
 }
 
+const writeFirebase= ({ width, height, secure_url }, text = "")  => (
+  database.ref('publications/').push({
+    width, height, secure_url, text
+  }).then(response =>  response)
+);
+
+function* sagaUploadPublish ({values}) {
+  try {
+    const image = yield select(state => state.reducerPublishImage)
+    const resultImage = yield call(registerCloudinaryImage, image)
+    const { width, height, secure_url} = resultImage;
+    const paramsImage = { width, height,secure_url }
+    const writeInFirebase = yield call(writeFirebase, paramsImage, values.text)
+
+    console.log("resultImage sagaUPPUB", resultImage)
+    console.log("image sagaUPPUB", image)
+    console.log("values sagaUPPUB", values)
+    console.log("writeInFirebase", writeInFirebase)
+  } catch (error) {
+    console.log(error)
+  }
+}
 export default function* primaryFunction () {
-  // takeEvery escucha todos los dispatch
-  yield takeEvery ( CONSTANTS.REGISTER, sagaRegister)
-  yield takeEvery (CONSTANTS.LOGIN, sagaLogin)  
-  // yield ES6
+  // takeEvery listen all dispatchs
+  yield takeEvery (CONSTANTS.REGISTER, sagaRegister)
+  yield takeEvery (CONSTANTS.LOGIN, sagaLogin);
+  yield takeEvery (CONSTANTS.UPLOAD_PUBLISH, sagaUploadPublish)
 }
