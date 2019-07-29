@@ -113,7 +113,14 @@ const downloadPublications = () =>
   database
     .ref(`publications/`)
     .once('value')
-    .then(response => response.val())
+    .then(snapshot => snapshot.forEach((childSnapshot) => {
+      const {key} = childSnapshot;
+      let post = childSnapshot.val()
+      post.key = key
+      console.log("childsnapshot",(post))
+      return post
+    })
+    )
 
 function* sagaDownloadPublications (){
   try {
