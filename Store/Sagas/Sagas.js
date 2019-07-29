@@ -1,6 +1,7 @@
-import { takeEvery, call, select } from 'redux-saga/effects'
+import { takeEvery, call, select, put, all } from 'redux-saga/effects'
 import { autentication, database } from '../Services/Firebase'
 import CONSTANTS from '../Constants'
+import { actionAddPublicationsStore, actionAddAuthorsStore, actionSuccessUploadPublish, actionErrorUploadPublish } from '../Actions'
 
 const firebaseRegistration =  (values) => 
   autentication
@@ -97,6 +98,7 @@ function* sagaUploadPublish ({values}) {
     const paramsAuthorPublish = { uid, key };
     const resultWriteUserPublish = yield call (writeUserPublish, paramsAuthorPublish);
 
+    yield put(actionSuccessUploadPublish())
 
     console.log("resultWriteUserPublish",resultWriteUserPublish)
     console.log("user sagaUPPUB", user)
@@ -106,6 +108,7 @@ function* sagaUploadPublish ({values}) {
     console.log(resultWriteInFirebase.key," resultWriteInFirebase", resultWriteInFirebase)
   } catch (error) {
     console.log(error)
+    yield put(actionErrorUploadPublish())
   }
 }
 
@@ -113,19 +116,33 @@ const downloadPublications = () =>
   database
     .ref(`publications/`)
     .once('value')
-    .then(snapshot => snapshot.forEach((childSnapshot) => {
-      const {key} = childSnapshot;
-      let post = childSnapshot.val()
-      post.key = key
-      console.log("childsnapshot",(post))
-      return post
+    .then(snapshot => {
+      let posts = [];
+      snapshot.forEach((childSnapshot) => {
+        const {key} = childSnapshot;
+        let post = childSnapshot.val();
+        post.key = key;
+        posts.push(post);
+        // console.log("childsnapshot",(post))
+      })
+      return posts
     })
-    )
+
+const downloadAuthor = (uid) => (
+    database
+    .ref(`users/${uid}`)
+    .once('value')
+    .then((snapshot) => snapshot.toJSON())
+)
 
 function* sagaDownloadPublications (){
   try {
     const publications = yield call(downloadPublications)
-    console.log(publications)
+
+    const authors = yield all(publications.map(publication => call(downloadAuthor, publication.uid )));
+    // console.log("AUTHORS",authors)
+    yield put(actionAddAuthorsStore(authors));
+    yield put(actionAddPublicationsStore(publications));
   } catch (error) {
     console.log(error)
   }

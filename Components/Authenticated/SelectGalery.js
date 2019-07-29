@@ -1,14 +1,39 @@
 import React, {Component} from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, Alert } from 'react-native'
 import SelectImage from '../SelectImage';
 import {blur} from 'redux-form'
 import { connect } from 'react-redux'
-import { actionUploadPublishImage, actionUploadPublish, actionCleanPublishImage } from '../../Store/Actions';
+import { actionUploadPublishImage, actionUploadPublish, actionCleanPublishImage,actionCleanUploadPublish } from '../../Store/Actions';
 import SelectGaleryForm from './SelectGaleryForm';
 
 class SelectGalery extends Component {
   componentWillUnmount(){
     this.props.cleanImageAdd()
+  }
+  
+  componentWillReceiveProps(nextProps){
+    if(this.props.stateUploadPublish !== nextProps.stateUploadPublish){
+      switch (nextProps.stateUploadPublish) {
+        case 'SUCCESS':
+          console.log("SUCCESS")
+          Alert.alert("SUCCES", "The publication was made successfully", [{text: 'OK', onPress: () => {
+           this.props.cleanStatePublish(); 
+          } }])
+          this.props.navigation.goBack()
+          break;
+        case 'ERROR':
+          console.log("ERROR")
+          Alert.alert('ERROR', 'The publication was not made. Try again...', [{
+            text : 'CONFIRM',
+            onPress: () =>{ 
+              this.props.cleanStatePublish();
+              this.props.navigation.goBack();}
+          }])
+          break;
+        default:
+          break;
+      }
+    }
   }
   
   render() {
@@ -31,7 +56,8 @@ class SelectGalery extends Component {
 
 const mapStateToProps= (state, ownProps) => {
   return {
-    image: state.reducerPublishImage 
+    image: state.reducerPublishImage,
+    stateUploadPublish: state.reducerSuccessUploadPublish.state
   }
 }
 const mapDispatchToProps= (dispatch, ownProps) => {
@@ -45,7 +71,10 @@ const mapDispatchToProps= (dispatch, ownProps) => {
     },
     cleanImageAdd: () => {
       dispatch(actionCleanPublishImage())
-    }
+    },
+    cleanStatePublish: () => {
+      dispatch(actionCleanUploadPublish())
+    },
   }
 }
 

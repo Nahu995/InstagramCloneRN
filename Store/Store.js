@@ -50,6 +50,37 @@ const reducerPublishImage = (state = {image: null}, action) => {
   }
 }
 
+const reducerPublicationsUnloaded = (state = [], action) => {
+  switch (action.type) {
+    case CONSTANTS.ADD_PUBLICATIONS_STORE:
+      return [...state, ...action.publications]
+    default:
+      return state
+  }
+}
+
+const reducerAuthorsUnloaded = (state = [], action) => {
+  switch (action.type) {
+    case CONSTANTS.ADD_AUTHORS_STORE:
+      return [...state, ...action.authors]
+    default:
+      return state
+  }
+}
+
+const reducerSuccessUploadPublish = (state = { state: null }, action) => {
+  switch (action.type) {
+    case CONSTANTS.SUCCESS_UPLOAD_PUBLISH:
+      return {state: 'SUCCESS'}
+    case CONSTANTS.ERROR_UPLOAD_PUBLISH:
+      return { state: 'ERROR' }
+    case CONSTANTS.CLEAN_UPLOAD_PUBLISH:
+      return { state: null }
+    default:
+    return state
+  }
+}
+
 
 // f (g (h (...args) ) )
 // ultimoMiddleware(myMiddleware(...args))
@@ -58,6 +89,9 @@ const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
   reducerPrueba,
+  reducerPublicationsUnloaded,
+  reducerAuthorsUnloaded,
+  reducerSuccessUploadPublish,
   reducerPublishImage,
   reducerSession,
   reducerSignUpImage,

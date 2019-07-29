@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, FlatList, Image, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import {actionDownloadPublications} from '../../Store/Actions'
+import Publishing from './Publishing';
 
 class Home extends Component{
   
@@ -10,10 +11,23 @@ class Home extends Component{
   }
 
   render() {
-    const { navigation } = this.props
+    // console.log("RenderHome", this.props.publications)
+    const { navigation, authors } = this.props
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
+        <FlatList 
+          data={this.props.publications}
+          renderItem= {({ item, index }) => 
+            <Publishing 
+              item= { item }
+              author= {authors[index]}
+            />
+          }
+          ItemSeparatorComponent= {() => 
+            <View style={styles.separator}/>
+          }
+        />
+        {/* <Text>Home</Text>
         <Button 
           title= 'Author'
           onPress= { () => {
@@ -25,7 +39,7 @@ class Home extends Component{
           onPress= { () => {
             navigation.navigate('Comments')
           }}
-        />
+        /> */}
       </View>
     )
   }
@@ -36,13 +50,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#f9f9f9'
+  },
+  separator:{
+    borderWidth: 1,
+    borderColor: '#C0C0C0',
   }
-});
+})
 
 const mapStateToProps = (state, ownProps) => {
   return{
-    
+    publications: state.reducerPublicationsUnloaded,
+    authors: state.reducerAuthorsUnloaded
   }
 }
 

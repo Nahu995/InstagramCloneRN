@@ -42,7 +42,29 @@ export const actionUploadPublish = (values) => ({
   values
 });
 
-export const actionDownloadPublications = (values) => ({
+export const actionDownloadPublications = () => ({
   type: CONSTANTS.DOWNLOAD_PUBLICATIONS,
-  values
+  
+})
+
+export const actionAddPublicationsStore = publications => ({
+  type: CONSTANTS.ADD_PUBLICATIONS_STORE,
+  publications
+})
+
+export const actionAddAuthorsStore = authors => ({
+  type: CONSTANTS.ADD_AUTHORS_STORE,
+  authors
+})
+
+export const actionSuccessUploadPublish = () => ({
+  type: CONSTANTS.SUCCESS_UPLOAD_PUBLISH
+})
+
+export const actionErrorUploadPublish = () => ({
+  type: CONSTANTS.ERROR_UPLOAD_PUBLISH
+})
+
+export const actionCleanUploadPublish = () => ({
+  type: CONSTANTS.CLEAN_UPLOAD_PUBLISH
 })
