@@ -32,7 +32,6 @@ const fieldImage = props => {
 }
 
 const validate = (values, props) => {
-  console.log('Ejecutando validación...')
   const errors = {};
   
   if(!props.image) {

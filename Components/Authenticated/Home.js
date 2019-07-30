@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, FlatList, Image, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
-import {actionDownloadPublications} from '../../Store/Actions'
+import { actionDownloadPublications } from '../../Store/Actions'
 import Publishing from './Publishing';
 
 class Home extends Component{
@@ -11,7 +11,6 @@ class Home extends Component{
   }
 
   render() {
-    // console.log("RenderHome", this.props.publications)
     const { navigation, authors } = this.props
     return (
       <View style={styles.container}>
@@ -27,19 +26,6 @@ class Home extends Component{
             <View style={styles.separator}/>
           }
         />
-        {/* <Text>Home</Text>
-        <Button 
-          title= 'Author'
-          onPress= { () => {
-            navigation.navigate( 'Author' ) 
-          }}
-        />
-        <Button 
-          title= 'Comments'
-          onPress= { () => {
-            navigation.navigate('Comments')
-          }}
-        /> */}
       </View>
     )
   }

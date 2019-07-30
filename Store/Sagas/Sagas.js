@@ -41,7 +41,6 @@ function* sagaRegister (values) {
     //upload Image
     const image = yield select(state => state.reducerSignUpImage)
     const urlImage = yield call(registerCloudinaryImage, image)
-    console.log("RESPONSE with changes!!!!! \n", urlImage)
     const profileImage = urlImage.secure_url
     const register = yield call(firebaseRegistration, values.data)
     // uid, email, name, profileImage
@@ -59,7 +58,6 @@ const loginFirebase = ({ email, password }) =>
 
 function* sagaLogin (values) {
   try {
-    console.log(values)
     const response = yield call(loginFirebase,values.data)
     console.log("Response Refactor", response)
   } catch (error) {
@@ -100,12 +98,6 @@ function* sagaUploadPublish ({values}) {
 
     yield put(actionSuccessUploadPublish())
 
-    console.log("resultWriteUserPublish",resultWriteUserPublish)
-    console.log("user sagaUPPUB", user)
-    console.log("resultImage sagaUPPUB", resultImage)
-    console.log("image sagaUPPUB", image)
-    console.log("values sagaUPPUB", values)
-    console.log(resultWriteInFirebase.key," resultWriteInFirebase", resultWriteInFirebase)
   } catch (error) {
     console.log(error)
     yield put(actionErrorUploadPublish())
@@ -123,7 +115,6 @@ const downloadPublications = () =>
         let post = childSnapshot.val();
         post.key = key;
         posts.push(post);
-        // console.log("childsnapshot",(post))
       })
       return posts
     })
@@ -140,7 +131,6 @@ function* sagaDownloadPublications (){
     const publications = yield call(downloadPublications)
 
     const authors = yield all(publications.map(publication => call(downloadAuthor, publication.uid )));
-    // console.log("AUTHORS",authors)
     yield put(actionAddAuthorsStore(authors));
     yield put(actionAddPublicationsStore(publications));
   } catch (error) {

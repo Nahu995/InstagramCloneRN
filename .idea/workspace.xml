@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="37189944-495d-4321-b9ce-d40e3f051b04" name="Default Changelist" comment="" />
+    <list default="true" id="37189944-495d-4321-b9ce-d40e3f051b04" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.expo-shared/assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo-shared/assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Authenticated/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Authenticated/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Authenticated/Publishing.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Authenticated/Publishing.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Authenticated/SelectGalery.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Authenticated/SelectGalery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/Authenticated/SelectGaleryForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/Authenticated/SelectGaleryForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Components/SelectImage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Components/SelectImage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Select.js" beforeDir="false" afterPath="$PROJECT_DIR$/Select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Store/Sagas/Sagas.js" beforeDir="false" afterPath="$PROJECT_DIR$/Store/Sagas/Sagas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Store/Store.js" beforeDir="false" afterPath="$PROJECT_DIR$/Store/Store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +33,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -34,7 +46,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>

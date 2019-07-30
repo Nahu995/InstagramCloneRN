@@ -6,14 +6,12 @@ import * as ImagePicker from 'expo-image-picker'
 import { CLOUDINARY_PRESET, CLOUDINARY_NAME } from '../config';
 
 const SelectImage = (props) => {
-  console.log("line 9",{...props})
   const selectImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
     });
-    console.log("result",result);
 
     if (!result.cancelled) {
       props.uploadImage(result)

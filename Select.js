@@ -41,12 +41,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     autentication.onAuthStateChanged( (user) => {
       if(user) {
         // User is signed in.
-        console.log("TOJSON",user.toJSON())
         dispatch(actionSetSession(user))
         // ...
       } else {
         // User is signed out.
-        console.log('No existe sesion')
         dispatch( actionSignOff() )
         // ...
       }

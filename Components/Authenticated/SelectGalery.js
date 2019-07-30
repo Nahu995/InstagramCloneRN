@@ -15,14 +15,12 @@ class SelectGalery extends Component {
     if(this.props.stateUploadPublish !== nextProps.stateUploadPublish){
       switch (nextProps.stateUploadPublish) {
         case 'SUCCESS':
-          console.log("SUCCESS")
           Alert.alert("SUCCES", "The publication was made successfully", [{text: 'OK', onPress: () => {
            this.props.cleanStatePublish(); 
           } }])
           this.props.navigation.goBack()
           break;
         case 'ERROR':
-          console.log("ERROR")
           Alert.alert('ERROR', 'The publication was not made. Try again...', [{
             text : 'CONFIRM',
             onPress: () =>{ 

@@ -4,16 +4,6 @@ import createSagaMiddleware from 'redux-saga';
 import primaryFunction from './Sagas/Sagas';
 import CONSTANTS from './Constants';
 
-const reducerPrueba = (state = [0], action) => {
-  switch (action.type) {
-    case "AUMENTAR_REDUCER_PRUEBA":
-      return [...state, state[state.length-1]+1];
-
-    default:
-      return state;
-  }
-};
-
 const reducerSession = (state = null, action) => {
   switch (action.type) {
     case CONSTANTS.SET_SESSION:
@@ -88,7 +78,6 @@ const reducerSuccessUploadPublish = (state = { state: null }, action) => {
 const sagaMiddleware = createSagaMiddleware();
 
 const reducers = combineReducers({
-  reducerPrueba,
   reducerPublicationsUnloaded,
   reducerAuthorsUnloaded,
   reducerSuccessUploadPublish,

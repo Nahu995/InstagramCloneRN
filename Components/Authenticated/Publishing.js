@@ -6,7 +6,6 @@ export default class Publishing extends Component{
   render() {
     const { navigation, item, author} = this.props
     const { width } = Dimensions.get('window');
-    // console.log("renderPublishingWidth", width)
     const factor = item.width / width
     const height = item.height / factor
     return (
